@@ -1,4 +1,16 @@
+.cardWrapper {
+  transition: opacity 1s ease, transform 1s ease;
+  transform: translateY(80px);
+  opacity: 0;
+}
+
+.cardWrapperVisible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 .projectCard {
+  height: 100%;
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
@@ -18,6 +30,12 @@
       border-top-left-radius: 1rem;
       object-fit: cover;
       object-position: center;
+      transition: opacity 0.5s ease;
+      opacity: 0;
+    }
+
+    .cardImgShown {
+      opacity: 1;
     }
   }
 
@@ -30,7 +48,7 @@
 
     .tools {
       display: flex;
-      gap: 1rem;
+      gap: 0.5rem;
       flex-wrap: wrap;
     }
   }

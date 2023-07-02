@@ -82,7 +82,7 @@ export default function Main() {
   return (
     <>
       <Head>
-        <title>Sophie Zhang&apos;s Website</title>
+        <title>Sophie Zhang&apos;s Portfolio Website</title>
         <meta name="description" content="My portfolio website." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

@@ -29,12 +29,6 @@ const Home = () => {
     }, 1000);
   }, [imgLoaded]);
 
-  // useEffect(() => {
-  //   if (inView) {
-  //     setActiveView(Sections.HOME);
-  //   }
-  // }, [inView]);
-
   return (
     <div className={styles.home}>
       <div className={styles.bg}>

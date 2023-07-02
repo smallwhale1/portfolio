@@ -11,13 +11,52 @@ $mobileNavbarMargin: $mobileHorizontalMargin + 1rem;
   height: $topbarHeight;
   padding: 0 $navbarMargin;
   width: 100%;
+  transition: opacity 1s ease;
+  opacity: 0;
+}
+
+.topbarContainerShown {
+  opacity: 1;
 }
 
 .topbar {
+  position: relative;
   height: $topbarHeight;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .collapsedMenu {
+    padding: 1rem;
+    position: fixed;
+    z-index: 999;
+    background-color: #fbf7f0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    transform: translateY(-100%);
+
+    .menu {
+      list-style-type: none;
+
+      .menuLink {
+        cursor: pointer;
+        text-align: center;
+        text-transform: capitalize;
+        font-size: 1.2rem;
+        padding: 1.5rem;
+      }
+    }
+  }
+
+  .collapsedMenuShown {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 
   .name {
     cursor: pointer;
@@ -33,10 +72,10 @@ $mobileNavbarMargin: $mobileHorizontalMargin + 1rem;
 
     .link {
       cursor: pointer;
-      font-size: 1rem;
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      //   text-transform: uppercase;
+      //   letter-spacing: 1px;
       transition: color 0.2s ease;
     }
 

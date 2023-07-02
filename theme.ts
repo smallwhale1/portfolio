@@ -20,7 +20,7 @@ declare module "@mui/material/styles" {
 export const lightTheme = createTheme({
   palette: {
     primary: {
-      main: "#ef5181",
+      main: "#ef8351",
     },
     secondary: {
       main: "#ffe7ee",
@@ -29,6 +29,15 @@ export const lightTheme = createTheme({
     bgColor: { main: "#fbf7f0" },
   },
   components: {
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          "&:not(.Mui-selected):not(:hover)": {
+            color: "#57534e", // Change the color of the inactive tab
+          },
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {},

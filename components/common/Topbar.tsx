@@ -2,10 +2,11 @@ import { IconButton, useTheme } from "@mui/material";
 import styles from "./Topbar.module.scss";
 import { AiFillGithub, AiFillLinkedin, AiOutlineMenu } from "react-icons/ai";
 import { Allura } from "next/font/google";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Sections } from "@/util/enums";
 import { InViewContext } from "@/contexts/InViewContext";
+import { BiX } from "react-icons/bi";
 
 const font = Allura({ subsets: ["latin"], weight: ["400"] });
 
@@ -15,9 +16,11 @@ interface TopbarProps {
 
 const Topbar = ({ smoothScroll }: TopbarProps) => {
   const [collapsed, setCollapsed] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [nameCollapsed, setNameCollapsed] = useState(false);
   const theme = useTheme();
   const { activeView } = useContext(InViewContext);
+  const [showNavbar, setShowNavbar] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -31,6 +34,7 @@ const Topbar = ({ smoothScroll }: TopbarProps) => {
       } else {
         setNameCollapsed(false);
       }
+      setShowNavbar(true);
     };
 
     handleResize();
@@ -40,7 +44,9 @@ const Topbar = ({ smoothScroll }: TopbarProps) => {
 
   return (
     <div
-      className={styles.topbarContainer}
+      className={`${styles.topbarContainer} ${
+        showNavbar && styles.topbarContainerShown
+      }`}
       style={{ backgroundColor: theme.palette.bgColor.main }}
     >
       <nav className={styles.topbar}>
@@ -52,7 +58,7 @@ const Topbar = ({ smoothScroll }: TopbarProps) => {
         >
           {nameCollapsed ? "SZ" : "Sophie Zhang"}
         </div>
-        <ul className={styles.links}>
+        <ul className={`${styles.links} ${font.className}`}>
           {!collapsed && (
             <>
               {/* Navigation links within page */}
@@ -115,13 +121,63 @@ const Topbar = ({ smoothScroll }: TopbarProps) => {
             </Link>
             {collapsed && (
               <li className={styles.link}>
-                <IconButton>
+                <IconButton
+                  onClick={() => {
+                    setMenuOpen(true);
+                  }}
+                >
                   <AiOutlineMenu color={theme.palette.textColor.main} />
                 </IconButton>
               </li>
             )}
           </ul>
         </ul>
+        {
+          <div
+            className={`${styles.collapsedMenu} ${
+              menuOpen && styles.collapsedMenuShown
+            }`}
+          >
+            <IconButton
+              onClick={() => {
+                setMenuOpen(false);
+              }}
+              sx={{ alignSelf: "flex-end" }}
+            >
+              <BiX />
+            </IconButton>
+            <ul className={styles.menu}>
+              {/* Navigation links within page */}
+              <li
+                className={`${styles.menuLink}`}
+                onClick={() => {
+                  setMenuOpen(false);
+                  smoothScroll(Sections.HOME);
+                }}
+              >
+                <div>home</div>
+              </li>
+              <li
+                className={`${styles.menuLink}`}
+                onClick={() => {
+                  setMenuOpen(false);
+                  smoothScroll(Sections.PROJECTS);
+                }}
+              >
+                <div>projects</div>
+              </li>
+              <li
+                className={`${styles.menuLink}`}
+                onClick={() => {
+                  setMenuOpen(false);
+                  smoothScroll(Sections.SKILLS);
+                }}
+              >
+                <div>skills</div>
+              </li>
+            </ul>
+          </div>
+        }
       </nav>
     </div>
   );

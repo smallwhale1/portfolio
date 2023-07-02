@@ -1,7 +1,11 @@
 import { Skill } from "./interfaces";
 import { DiSass, DiReact, DiCss3, DiNodejs, DiAws } from "react-icons/di";
-import { SiMui, SiFirebase, SiExpress, SiNumpy } from "react-icons/si";
-import { TbBrandNextjs, TbBrandHtml5 } from "react-icons/tb";
+import { SiMui, SiFirebase, SiExpress, SiNumpy, SiFigma } from "react-icons/si";
+import {
+  TbBrandNextjs,
+  TbBrandHtml5,
+  TbBrandReactNative,
+} from "react-icons/tb";
 import {
   BiLogoJavascript,
   BiLogoJava,
@@ -84,5 +88,13 @@ export const skills: Skill[] = [
   {
     skill: "AWS",
     icon: <DiAws color={black} size={size} />,
+  },
+  {
+    skill: "Figma",
+    icon: <SiFigma color={primaryPink} size={size} />,
+  },
+  {
+    skill: "React Native",
+    icon: <TbBrandReactNative color={primaryBlue} size={size} />,
   },
 ];

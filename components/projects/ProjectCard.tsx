@@ -3,16 +3,29 @@ import styles from "./ProjectCard.module.scss";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Tool from "./Tool";
+import { useInView } from "react-intersection-observer";
 
 interface ProjectCardProps {
   project: Project;
 }
 
-const imgWidth = 500;
-
 const ProjectCard = ({ project }: ProjectCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [imgHeight, setImgHeight] = useState(0);
+  const [imgLoaded, setImgLoaded] = useState(false);
+
+  const { ref, inView, entry } = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
+
+  const [cardInView, setCardInView] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      setCardInView(true);
+    }
+  }, [inView]);
 
   const getImgUrl = (): string => {
     return `/assets/images/projects/${project.projectType}/${project.name
@@ -36,23 +49,31 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   }, []);
 
   return (
-    <div className={styles.projectCard} ref={cardRef}>
-      <div className={styles.imgContainer} style={{ height: imgHeight }}>
-        <Image
-          className={styles.cardImg}
-          src={getImgUrl()}
-          alt={`${project.name}`}
-          fill
-          priority={project.priority}
-        />
-      </div>
-      <div className={styles.cardText}>
-        <h4>{project.name}</h4>
-        <p>{project.description}</p>
-        <div className={styles.tools}>
-          {project.tools.map((tool) => (
-            <Tool key={tool} tool={tool} />
-          ))}
+    <div
+      className={`${styles.cardWrapper} ${
+        cardInView && styles.cardWrapperVisible
+      }`}
+      ref={ref}
+    >
+      <div className={styles.projectCard} ref={cardRef}>
+        <div className={styles.imgContainer} style={{ height: imgHeight }}>
+          <Image
+            onLoad={() => setImgLoaded(true)}
+            className={`${styles.cardImg} ${imgLoaded && styles.cardImgShown}`}
+            src={getImgUrl()}
+            alt={`${project.name}`}
+            fill
+            priority={project.priority}
+          />
+        </div>
+        <div className={styles.cardText}>
+          <h4>{project.name}</h4>
+          <p>{project.description}</p>
+          <div className={styles.tools}>
+            {project.tools.map((tool) => (
+              <Tool key={tool} tool={tool} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

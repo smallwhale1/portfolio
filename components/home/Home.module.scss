@@ -3,19 +3,20 @@
 .home {
   margin-top: $topbarHeight;
   margin-bottom: 4rem;
-  // height: calc(100vh - $topbarHeight);
 
   .bg {
     padding: 6rem 0;
     position: relative;
     border-radius: 2rem;
+    -webkit-border-radius: 2rem;
     overflow: hidden; /* Hide any content that exceeds the container */
 
     .bgImg {
       position: absolute;
       object-fit: cover;
-      object-position: bottom;
+      object-position: left;
       border-radius: 2rem;
+      -webkit-border-radius: 2rem;
       transition: opacity 1s ease;
       opacity: 0;
       animation: scaleAnimation 10s infinite;
@@ -28,13 +29,14 @@
     .overlay {
       height: 100%;
       width: 100%;
+      border-radius: 2rem;
+      -webkit-border-radius: 2rem;
       position: absolute;
       top: 0;
       left: 0;
       background: linear-gradient(to right, #270903, #2709032f);
       transition: opacity 1s ease;
       opacity: 0;
-      border-radius: 2rem;
     }
 
     .bgOverlayLoaded {
@@ -59,7 +61,7 @@
       }
 
       h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: 600;
       }
     }

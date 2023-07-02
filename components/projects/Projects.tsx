@@ -1,22 +1,13 @@
 import { projects } from "@/util/projects";
 import ProjectCard from "./ProjectCard";
 import styles from "./Projects.module.scss";
-import { Tab, Tabs } from "@mui/material";
-import { useContext, useEffect, useState } from "react";
-import { ProjectType, Sections } from "@/util/enums";
-import { useInView } from "react-intersection-observer";
-import { InViewContext } from "@/contexts/InViewContext";
+import { Tab, Tabs, useTheme } from "@mui/material";
+import { useState } from "react";
+import { ProjectType } from "@/util/enums";
 
 const Projects = () => {
   const [projectType, setProjectType] = useState(ProjectType.WEB);
-  const { setActiveView } = useContext(InViewContext);
-
-  // useEffect(() => {
-  //   console.log(inView);
-  //   if (inView) {
-  //     setActiveView(Sections.PROJECTS);
-  //   }
-  // }, [inView]);
+  const theme = useTheme();
 
   return (
     <div className={styles.projects}>
@@ -29,7 +20,11 @@ const Projects = () => {
           setProjectType(val as ProjectType);
         }}
       >
-        <Tab value={ProjectType.WEB} label="Web" />
+        <Tab
+          value={ProjectType.WEB}
+          label="Web"
+          sx={{ color: theme.palette.textColor.main }}
+        />
         <Tab value={ProjectType.AI} label="AI" />
         <Tab value={ProjectType.SYSTEMS} label="Systems" />
         <Tab value={ProjectType.ALGORITHMS} label="Algorithms" />
