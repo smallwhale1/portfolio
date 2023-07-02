@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./Home.module.scss";
 import HBarText from "./HBarText";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const Home = () => {
   const [centered, setCentered] = useState(false);
@@ -51,9 +51,9 @@ const Home = () => {
         ></div>
         <div className={`${styles.text} ${textVisible && styles.textVisible}`}>
           <HBarText text="hi there!" center={centered} />
-          <h1>I'm Sophie.</h1>
+          <h1>I&apos;m Sophie.</h1>
           <h2>
-            I'm a junior at Brown University {!centered && <br />} studying
+            I&apos;m a junior at Brown University {!centered && <br />} studying
             computer science.
           </h2>
         </div>

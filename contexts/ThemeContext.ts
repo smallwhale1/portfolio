@@ -1,4 +1,4 @@
-import { Theme } from "@/util/interfaces";
+import { Theme } from "@/util/enums";
 import { createContext } from "react";
 
 type ThemeContextType = {

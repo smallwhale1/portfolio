@@ -33,7 +33,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [cardRef.current]);
+  }, []);
+
   return (
     <div className={styles.projectCard} ref={cardRef}>
       <div className={styles.imgContainer} style={{ height: imgHeight }}>
