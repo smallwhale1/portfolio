@@ -19,7 +19,6 @@ declare module "@mui/material/styles" {
 
 export const lightTheme = createTheme({
   palette: {
-    mode: "light",
     primary: {
       main: "#ef5181",
     },
@@ -47,13 +46,13 @@ export const darkTheme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#F56161",
+      main: "#ef5181",
     },
     secondary: {
-      main: "#da61f5",
+      main: "#ffe7ee",
     },
-    textColor: { main: "#ffffff" },
-    bgColor: { main: "#000000" },
+    textColor: { main: "#57534e" },
+    bgColor: { main: "#fbf7f0" },
   },
   components: {
     MuiButton: {
