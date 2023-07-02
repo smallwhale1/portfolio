@@ -12,9 +12,10 @@ const font = Allura({ subsets: ["latin"], weight: ["400"] });
 
 interface TopbarProps {
   smoothScroll: (section: Sections) => void;
+  showNav: boolean;
 }
 
-const Topbar = ({ smoothScroll }: TopbarProps) => {
+const Topbar = ({ smoothScroll, showNav }: TopbarProps) => {
   const [collapsed, setCollapsed] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [nameCollapsed, setNameCollapsed] = useState(false);
@@ -45,7 +46,7 @@ const Topbar = ({ smoothScroll }: TopbarProps) => {
   return (
     <div
       className={`${styles.topbarContainer} ${
-        showNavbar && styles.topbarContainerShown
+        showNavbar && showNav && styles.fadeIn
       }`}
       style={{ backgroundColor: theme.palette.bgColor.main }}
     >

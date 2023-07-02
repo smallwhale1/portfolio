@@ -22,6 +22,8 @@ export default function Main() {
   const projectRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
   const [activeView, setActiveView] = useState<Sections>(Sections.HOME);
+  const [contentVisible, setContentVisible] = useState(false);
+  const [navVisible, setNavVisible] = useState(false);
 
   const smoothScroll = (section: Sections) => {
     let element: HTMLElement | undefined;
@@ -94,15 +96,24 @@ export default function Main() {
           className={`${styles.main} ${font.className}`}
           style={{ backgroundColor: theme.palette.bgColor.main }}
         >
-          <Topbar smoothScroll={smoothScroll} />
+          <Topbar smoothScroll={smoothScroll} showNav={navVisible} />
           <div ref={homeRef}>
-            <Home />
+            <Home
+              setNavVisible={setNavVisible}
+              setContentVisible={setContentVisible}
+            />
           </div>
-          <div ref={projectRef}>
-            <Projects />
-          </div>
-          <div ref={skillsRef}>
-            <Skills />
+          <div
+            className={`${styles.content} ${
+              contentVisible && styles.fadeInLeft
+            }`}
+          >
+            <div ref={projectRef}>
+              <Projects />
+            </div>
+            <div ref={skillsRef}>
+              <Skills />
+            </div>
           </div>
         </main>
       </InViewContext.Provider>

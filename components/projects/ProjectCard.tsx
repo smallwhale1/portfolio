@@ -13,19 +13,6 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   const [imgHeight, setImgHeight] = useState(0);
   const [imgLoaded, setImgLoaded] = useState(false);
 
-  // const { ref, inView, entry } = useInView({
-  //   threshold: 0.2,
-  //   triggerOnce: true,
-  // });
-
-  // const [cardInView, setCardInView] = useState(false);
-
-  // useEffect(() => {
-  //   if (inView) {
-  //     setCardInView(true);
-  //   }
-  // }, [inView]);
-
   const getImgUrl = (): string => {
     return `/assets/images/projects/${project.projectType}/${project.name
       .toLowerCase()
@@ -48,12 +35,6 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   }, []);
 
   return (
-    // <div
-    //   className={`${styles.cardWrapper} ${
-    //     cardInView && styles.cardWrapperVisible
-    //   }`}
-    //   ref={ref}
-    // >
     <div className={styles.projectCard} ref={cardRef}>
       <div className={styles.imgContainer} style={{ height: imgHeight }}>
         <Image

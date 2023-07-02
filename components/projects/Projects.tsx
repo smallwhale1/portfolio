@@ -1,6 +1,6 @@
+import styles from "./Projects.module.scss";
 import { projects } from "@/util/projects";
 import ProjectCard from "./ProjectCard";
-import styles from "./Projects.module.scss";
 import { Tab, Tabs, useTheme } from "@mui/material";
 import { useState } from "react";
 import { ProjectType } from "@/util/enums";
@@ -10,7 +10,7 @@ const Projects = () => {
   const theme = useTheme();
 
   return (
-    <div className={styles.projects}>
+    <div className={`${styles.projects}`}>
       <h3 className="section-heading">projects</h3>
       <Tabs
         variant="scrollable"
@@ -38,7 +38,6 @@ const Projects = () => {
               .map((project) => (
                 <ProjectCard key={project.name} project={project} />
               ))}
-            {/* Placeholder */}
             <div></div>
           </>
         ) : (

@@ -3,7 +3,11 @@ import styles from "./Home.module.scss";
 import HBarText from "./HBarText";
 import { useEffect, useState } from "react";
 
-const Home = () => {
+interface HomeProps {
+  setContentVisible: (visible: boolean) => void;
+  setNavVisible: (visible: boolean) => void;
+}
+const Home = ({ setContentVisible, setNavVisible }: HomeProps) => {
   const [centered, setCentered] = useState(false);
   const [imgLoaded, setImgLoaded] = useState(false);
   const [textVisible, setTextVisible] = useState(false);
@@ -24,8 +28,10 @@ const Home = () => {
 
   useEffect(() => {
     if (!imgLoaded) return;
+    setNavVisible(true);
     setTimeout(() => {
       setTextVisible(true);
+      setContentVisible(true);
     }, 1000);
   }, [imgLoaded]);
 
