@@ -1,8 +1,9 @@
 .skills {
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 
   .skillGrid {
     display: grid;

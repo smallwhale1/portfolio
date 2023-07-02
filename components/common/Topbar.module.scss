@@ -20,6 +20,7 @@ $mobileNavbarMargin: $mobileHorizontalMargin + 1rem;
   align-items: center;
 
   .name {
+    cursor: pointer;
     font-size: 2rem;
   }
 
@@ -31,10 +32,12 @@ $mobileNavbarMargin: $mobileHorizontalMargin + 1rem;
     gap: 3rem;
 
     .link {
+      cursor: pointer;
       font-size: 1rem;
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 1px;
+      transition: color 0.2s ease;
     }
 
     .externalLinks {

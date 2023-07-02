@@ -3,7 +3,7 @@
   flex-direction: column;
   border-radius: 1rem;
   background-color: #ffffff;
-  transition: all 0.2s ease;
+  transition: scale 0.2s ease;
 
   &:hover {
     scale: 1.05;

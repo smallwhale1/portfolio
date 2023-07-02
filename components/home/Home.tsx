@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./Home.module.scss";
 import HBarText from "./HBarText";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 const Home = () => {
   const [centered, setCentered] = useState(false);
@@ -28,6 +28,12 @@ const Home = () => {
       setTextVisible(true);
     }, 1000);
   }, [imgLoaded]);
+
+  // useEffect(() => {
+  //   if (inView) {
+  //     setActiveView(Sections.HOME);
+  //   }
+  // }, [inView]);
 
   return (
     <div className={styles.home}>

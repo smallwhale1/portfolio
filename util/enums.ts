@@ -10,3 +10,9 @@ export enum ProjectType {
   ALGORITHMS = "algorithms",
   MOBILE = "mobile",
 }
+
+export enum Sections {
+  HOME,
+  PROJECTS,
+  SKILLS,
+}

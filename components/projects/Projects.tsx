@@ -2,13 +2,22 @@ import { projects } from "@/util/projects";
 import ProjectCard from "./ProjectCard";
 import styles from "./Projects.module.scss";
 import { Tab, Tabs } from "@mui/material";
-import { useState } from "react";
-import { ProjectType } from "@/util/enums";
+import { useContext, useEffect, useState } from "react";
+import { ProjectType, Sections } from "@/util/enums";
+import { useInView } from "react-intersection-observer";
+import { InViewContext } from "@/contexts/InViewContext";
 
-type Props = {};
-
-const Projects = (props: Props) => {
+const Projects = () => {
   const [projectType, setProjectType] = useState(ProjectType.WEB);
+  const { setActiveView } = useContext(InViewContext);
+
+  // useEffect(() => {
+  //   console.log(inView);
+  //   if (inView) {
+  //     setActiveView(Sections.PROJECTS);
+  //   }
+  // }, [inView]);
+
   return (
     <div className={styles.projects}>
       <h3 className="section-heading">projects</h3>
@@ -26,7 +35,6 @@ const Projects = (props: Props) => {
         <Tab value={ProjectType.ALGORITHMS} label="Algorithms" />
         <Tab value={ProjectType.MOBILE} label="Mobile" />
       </Tabs>
-
       <div className={styles.projectGrid}>
         {projects.filter((p) => projectType === p.projectType).length === 1 ? (
           <>
