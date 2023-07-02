@@ -1,0 +1,16 @@
+.hBarText {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.3rem;
+  font-weight: 500;
+
+  .hBar {
+    background-color: #ffffff;
+    width: 25px;
+    height: 2px;
+  }
+}

@@ -1,0 +1,125 @@
+@import "../../styles/variables";
+
+.home {
+  margin-top: $topbarHeight;
+  margin-bottom: 4rem;
+  // height: calc(100vh - $topbarHeight);
+
+  .bg {
+    padding: 6rem 0;
+    position: relative;
+    border-radius: 2rem;
+    overflow: hidden; /* Hide any content that exceeds the container */
+
+    .bgImg {
+      position: absolute;
+      object-fit: cover;
+      object-position: bottom;
+      border-radius: 2rem;
+      transition: opacity 1s ease;
+      opacity: 0;
+      animation: scaleAnimation 10s infinite;
+    }
+
+    .bgImgLoaded {
+      opacity: 1;
+    }
+
+    .overlay {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: linear-gradient(to right, #270903, #2709032f);
+      transition: opacity 1s ease;
+      opacity: 0;
+      border-radius: 2rem;
+    }
+
+    .bgOverlayLoaded {
+      opacity: 0.4;
+    }
+
+    .text {
+      height: 100%;
+      position: relative;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+      padding-left: 6rem;
+      transition: transform 1s ease, opacity 1s ease;
+      opacity: 0;
+      transform: translateY(100px);
+
+      h1 {
+        font-size: 3.5rem;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+      }
+    }
+
+    .textVisible {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .home {
+    .bg {
+      .bgImg {
+        object-position: left;
+      }
+      .text {
+        margin: auto;
+        width: 75%;
+        align-items: center;
+        text-align: center;
+        padding-left: 0;
+
+        h1 {
+          font-size: 3rem;
+        }
+
+        h2 {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 500px) {
+  .home {
+    .bg {
+      .text {
+        h1 {
+          font-size: 2rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}

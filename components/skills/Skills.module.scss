@@ -1,0 +1,19 @@
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+
+  .skillGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .skills {
+    .skillGrid {
+      grid-template-columns: auto auto;
+    }
+  }
+}

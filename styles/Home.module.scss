@@ -1,0 +1,12 @@
+@import "../styles/variables";
+
+.main {
+  min-height: 100vh;
+  padding: 0 $horizontalMargin;
+}
+
+@media (max-width: 700px) {
+  .main {
+    padding: 0 $mobileHorizontalMargin;
+  }
+}

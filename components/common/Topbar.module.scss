@@ -1,0 +1,61 @@
+@import "../../styles/variables";
+
+$navbarMargin: $horizontalMargin + 1rem;
+$mobileNavbarMargin: $mobileHorizontalMargin + 1rem;
+
+.topbarContainer {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  height: $topbarHeight;
+  padding: 0 $navbarMargin;
+  width: 100%;
+}
+
+.topbar {
+  height: $topbarHeight;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .name {
+    font-size: 2rem;
+  }
+
+  .links {
+    position: relative;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+    .link {
+      font-size: 1rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .externalLinks {
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .indicator {
+      position: absolute;
+      top: calc(100% - 5px);
+      left: 0;
+      width: 45px;
+      height: 3px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .topbarContainer {
+    padding: 0 $mobileNavbarMargin;
+  }
+}
