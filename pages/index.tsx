@@ -44,8 +44,14 @@ export default function Main() {
     }
 
     if (element) {
-      const scrollOffset = element.offsetTop - 150;
-      window.scrollTo({ top: scrollOffset, behavior: "smooth" });
+      const { top } = element.getBoundingClientRect();
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const targetTop = scrollTop + top - 150;
+
+      window.scrollTo({
+        top: targetTop,
+        behavior: "smooth",
+      });
     }
   };
 
