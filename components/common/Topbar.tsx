@@ -9,6 +9,8 @@ import { InViewContext } from "@/contexts/InViewContext";
 import { BiX } from "react-icons/bi";
 
 const font = Allura({ subsets: ["latin"], weight: ["400"] });
+// Tailwind Zinc
+const navbarColor = "#27272a";
 
 interface TopbarProps {
   smoothScroll: (section: Sections) => void;
@@ -22,6 +24,21 @@ const Topbar = ({ smoothScroll, showNav }: TopbarProps) => {
   const theme = useTheme();
   const { activeView } = useContext(InViewContext);
   const [showNavbar, setShowNavbar] = useState(false);
+  const [scrolledDown, setScrolledDown] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolledDown(true);
+      } else {
+        setScrolledDown(false);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -48,13 +65,23 @@ const Topbar = ({ smoothScroll, showNav }: TopbarProps) => {
       className={`${styles.topbarContainer} ${
         showNavbar && showNav && styles.fadeIn
       }`}
-      style={{ backgroundColor: theme.palette.bgColor.main }}
+      style={
+        !scrolledDown
+          ? { backgroundColor: theme.palette.bgColor.main, height: "8rem" }
+          : { backgroundColor: navbarColor, height: "6rem" }
+      }
     >
-      <nav className={styles.topbar}>
+      <nav
+        className={styles.topbar}
+        style={!scrolledDown ? { height: "8rem" } : { height: "6rem" }}
+      >
         <div
           className={`${styles.name} ${font.className}`}
           onClick={() => {
             smoothScroll(Sections.HOME);
+          }}
+          style={{
+            color: scrolledDown ? "#ffffff" : theme.palette.textColor.main,
           }}
         >
           {nameCollapsed ? "SZ" : "Sophie Zhang"}
@@ -69,6 +96,8 @@ const Topbar = ({ smoothScroll, showNav }: TopbarProps) => {
                   color:
                     activeView === Sections.HOME
                       ? theme.palette.primary.main
+                      : scrolledDown
+                      ? "#ffffff"
                       : theme.palette.textColor.main,
                 }}
                 onClick={() => smoothScroll(Sections.HOME)}
@@ -81,6 +110,8 @@ const Topbar = ({ smoothScroll, showNav }: TopbarProps) => {
                   color:
                     activeView === Sections.PROJECTS
                       ? theme.palette.primary.main
+                      : scrolledDown
+                      ? "#ffffff"
                       : theme.palette.textColor.main,
                 }}
                 onClick={() => smoothScroll(Sections.PROJECTS)}
@@ -93,6 +124,8 @@ const Topbar = ({ smoothScroll, showNav }: TopbarProps) => {
                   color:
                     activeView === Sections.SKILLS
                       ? theme.palette.primary.main
+                      : scrolledDown
+                      ? "#ffffff"
                       : theme.palette.textColor.main,
                 }}
                 onClick={() => smoothScroll(Sections.SKILLS)}
@@ -106,7 +139,11 @@ const Topbar = ({ smoothScroll, showNav }: TopbarProps) => {
             <li className={styles.link}>
               <Link href="https://github.com/smallwhale1" target="_blank">
                 <IconButton>
-                  <AiFillGithub color={theme.palette.textColor.main} />
+                  <AiFillGithub
+                    color={
+                      scrolledDown ? "#ffffff" : theme.palette.textColor.main
+                    }
+                  />
                 </IconButton>
               </Link>
             </li>
@@ -116,7 +153,11 @@ const Topbar = ({ smoothScroll, showNav }: TopbarProps) => {
             >
               <li className={styles.link}>
                 <IconButton>
-                  <AiFillLinkedin color={theme.palette.textColor.main} />
+                  <AiFillLinkedin
+                    color={
+                      scrolledDown ? "#ffffff" : theme.palette.textColor.main
+                    }
+                  />
                 </IconButton>
               </li>
             </Link>
@@ -127,7 +168,11 @@ const Topbar = ({ smoothScroll, showNav }: TopbarProps) => {
                     setMenuOpen(true);
                   }}
                 >
-                  <AiOutlineMenu color={theme.palette.textColor.main} />
+                  <AiOutlineMenu
+                    color={
+                      scrolledDown ? "#ffffff" : theme.palette.textColor.main
+                    }
+                  />
                 </IconButton>
               </li>
             )}

@@ -2,16 +2,17 @@
 
 $navbarMargin: $horizontalMargin + 1rem;
 $mobileNavbarMargin: $mobileHorizontalMargin + 1rem;
+$transitionDuration: 0.5s;
 
 .topbarContainer {
   position: fixed;
   z-index: 999;
   top: 0;
   left: 0;
-  height: $topbarHeight;
   padding: 0 $navbarMargin;
   width: 100%;
-  transition: opacity 1s ease;
+  transition: opacity 1s ease, height $transitionDuration ease,
+    background-color 0.5s ease;
   opacity: 0;
 }
 
@@ -21,10 +22,10 @@ $mobileNavbarMargin: $mobileHorizontalMargin + 1rem;
 
 .topbar {
   position: relative;
-  height: $topbarHeight;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: height $transitionDuration ease;
 
   .collapsedMenu {
     padding: 1rem;
@@ -61,6 +62,7 @@ $mobileNavbarMargin: $mobileHorizontalMargin + 1rem;
   .name {
     cursor: pointer;
     font-size: 2rem;
+    transition: color $transitionDuration ease;
   }
 
   .links {
@@ -74,9 +76,7 @@ $mobileNavbarMargin: $mobileHorizontalMargin + 1rem;
       cursor: pointer;
       font-size: 1.5rem;
       font-weight: 500;
-      //   text-transform: uppercase;
-      //   letter-spacing: 1px;
-      transition: color 0.2s ease;
+      transition: color $transitionDuration ease;
     }
 
     .externalLinks {
