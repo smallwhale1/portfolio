@@ -8,7 +8,6 @@ import Home from "@/components/home/Home";
 import { useTheme } from "@mui/material";
 import { Sections } from "@/util/enums";
 import { useEffect, useRef, useState } from "react";
-import { useInView } from "react-intersection-observer";
 import { InViewContext } from "@/contexts/InViewContext";
 
 const font = Source_Sans_3({

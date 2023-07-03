@@ -1,14 +1,15 @@
-import { IconButton, useTheme } from "@mui/material";
 import styles from "./Topbar.module.scss";
+import Link from "next/link";
+import { IconButton, useTheme } from "@mui/material";
 import { AiFillGithub, AiFillLinkedin, AiOutlineMenu } from "react-icons/ai";
 import { Allura } from "next/font/google";
-import { useContext, useEffect, useRef, useState } from "react";
-import Link from "next/link";
+import { useContext, useEffect, useState } from "react";
 import { Sections } from "@/util/enums";
 import { InViewContext } from "@/contexts/InViewContext";
 import { BiX } from "react-icons/bi";
 
 const font = Allura({ subsets: ["latin"], weight: ["400"] });
+
 // Tailwind Zinc
 const navbarColor = "#27272a";
 

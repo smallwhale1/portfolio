@@ -1,6 +1,5 @@
 import { Skill } from "@/util/interfaces";
 import styles from "./SkillCard.module.scss";
-import { useTheme } from "@mui/material";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 
@@ -9,7 +8,7 @@ interface SkillCardProps {
 }
 
 const SkillCard = ({ skill }: SkillCardProps) => {
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: true,
   });

@@ -2,9 +2,7 @@ import { skills } from "@/util/skills";
 import styles from "./Skills.module.scss";
 import SkillCard from "./SkillCard";
 
-type Props = {};
-
-const Skills = (props: Props) => {
+const Skills = () => {
   return (
     <div className={styles.skills}>
       <h3 className="section-heading">Skills</h3>

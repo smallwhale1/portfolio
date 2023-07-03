@@ -1,6 +1,6 @@
-import { Project } from "@/util/interfaces";
 import styles from "./ProjectCard.module.scss";
 import Image from "next/image";
+import { Project } from "@/util/interfaces";
 import { useEffect, useRef, useState } from "react";
 import Tool from "./Tool";
 

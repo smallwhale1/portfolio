@@ -33,6 +33,10 @@ const Home = ({ setContentVisible, setNavVisible }: HomeProps) => {
       setTextVisible(true);
       setContentVisible(true);
     }, 1000);
+
+    return () => {
+      setImgLoaded(false);
+    };
   }, [imgLoaded]);
 
   return (
