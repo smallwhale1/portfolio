@@ -5,7 +5,7 @@ export const projects: Project[] = [
   {
     name: "Inspofolio",
     description:
-      "A web application for organizing the references and various media used to inspire a creative work or process. Supports image uploads and interactions, embedded links, and Spotify integration.",
+      "A web application for organizing the references and various media that inspire a creative work or process. Users can manage and reference their project-specific photos, links, palettes, and music all in one place.",
     tools: ["NextJS", "ReactJS", "Typescript", "Firebase"],
     projectType: ProjectType.WEB,
     priority: true,
