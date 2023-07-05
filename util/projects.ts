@@ -9,6 +9,7 @@ export const projects: Project[] = [
     tools: ["NextJS", "ReactJS", "Typescript", "Firebase"],
     projectType: ProjectType.WEB,
     priority: true,
+    link: "https://inspofolio.vercel.app/",
   },
   {
     name: "Dash",
@@ -17,6 +18,7 @@ export const projects: Project[] = [
     tools: ["MongoDB", "ReactJS", "Typescript", "Express", "NodeJS"],
     projectType: ProjectType.WEB,
     priority: true,
+    link: "https://brown-dash.github.io/Dash-Documentation/",
   },
   {
     name: "AI Image Editor",
@@ -24,6 +26,7 @@ export const projects: Project[] = [
       "A web application exploring the capabilities of selective, fine-tuned editing of images with prompt-guided generative AI.",
     tools: ["HTML Canvas", "ReactJS", "Typescript"],
     projectType: ProjectType.WEB,
+    link: "https://github.com/smallwhale1/ai-image-editor",
   },
   {
     name: "HeaterHive Web Console",
@@ -44,6 +47,7 @@ export const projects: Project[] = [
     description: "Website for the music start-up Featr.",
     tools: ["NextJS", "ReactJS", "Typescript", "Firebase"],
     projectType: ProjectType.WEB,
+    link: "https://featr.vercel.app/",
   },
   {
     name: "Yoga Bot",

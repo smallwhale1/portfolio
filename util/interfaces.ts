@@ -7,6 +7,7 @@ export interface Project {
   tools: string[];
   projectType: ProjectType;
   priority?: boolean;
+  link?: string;
 }
 
 export interface Skill {
