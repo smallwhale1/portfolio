@@ -37,8 +37,16 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   }, []);
 
   return project.link ? (
-    <Link href={project.link} target="_blank">
-      <div className={styles.projectCard} ref={cardRef}>
+    <Link
+      href={project.link}
+      target="_blank"
+      style={{ height: "100%", display: "block" }}
+    >
+      <div
+        className={styles.projectCard}
+        ref={cardRef}
+        style={{ height: "100%", display: "block" }}
+      >
         <div className={styles.imgContainer} style={{ height: imgHeight }}>
           <Image
             onLoad={() => setImgLoaded(true)}
