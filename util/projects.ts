@@ -47,7 +47,7 @@ export const projects: Project[] = [
     description: "Website for the music start-up Featr.",
     tools: ["NextJS", "ReactJS", "Typescript", "Firebase"],
     projectType: ProjectType.WEB,
-    link: "https://featr.vercel.app/",
+    link: "https://www.featr.co/",
   },
   {
     name: "Yoga Bot",
