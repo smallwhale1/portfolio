@@ -56,6 +56,7 @@ export const projects: Project[] = [
       "An application that instantaneously classifies 9 different yoga poses from a real-time video feed using a CNN architecture and overlays MoveNet embeddings over the body.",
     tools: ["Python", "Tensorflow", "Numpy", "CNN"],
     projectType: ProjectType.AI,
+    link: "https://github.com/ahsieh10/final-project-cv",
   },
   {
     name: "Othello Bot",
