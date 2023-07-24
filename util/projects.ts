@@ -44,7 +44,8 @@ export const projects: Project[] = [
   },
   {
     name: "Featr. Website",
-    description: "Website for the music start-up Featr.",
+    description:
+      "Website for the music start-up Featr. Features a community page for users to post upcoming shows and customizable profiles",
     tools: ["NextJS", "ReactJS", "Typescript", "Firebase"],
     projectType: ProjectType.WEB,
     link: "https://www.featr.co/",
