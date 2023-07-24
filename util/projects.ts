@@ -29,6 +29,14 @@ export const projects: Project[] = [
     link: "https://github.com/smallwhale1/ai-image-editor",
   },
   {
+    name: "Featr. Website",
+    description:
+      "Website for the music start-up Featr. Features a community page for users to post upcoming shows and customizable profiles",
+    tools: ["NextJS", "ReactJS", "Typescript", "Firebase"],
+    projectType: ProjectType.WEB,
+    link: "https://www.featr.co/",
+  },
+  {
     name: "HeaterHive Web Console",
     description:
       "A web console for managing water heating systems and visualizing metrics such as temperature and carbon emissions over time.",
@@ -41,14 +49,6 @@ export const projects: Project[] = [
       "Web application for exploring song recommendations with interactive, animated nodes.",
     tools: ["NodeJS", "Express", "ReactJS", "Web Scraping", "Firebase"],
     projectType: ProjectType.WEB,
-  },
-  {
-    name: "Featr. Website",
-    description:
-      "Website for the music start-up Featr. Features a community page for users to post upcoming shows and customizable profiles",
-    tools: ["NextJS", "ReactJS", "Typescript", "Firebase"],
-    projectType: ProjectType.WEB,
-    link: "https://www.featr.co/",
   },
   {
     name: "Yoga Bot",
