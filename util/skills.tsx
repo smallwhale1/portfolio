@@ -1,6 +1,13 @@
 import { Skill } from "./interfaces";
 import { DiSass, DiReact, DiCss3, DiNodejs, DiAws } from "react-icons/di";
-import { SiMui, SiFirebase, SiExpress, SiNumpy, SiFigma } from "react-icons/si";
+import {
+  SiMui,
+  SiFirebase,
+  SiExpress,
+  SiNumpy,
+  SiFigma,
+  SiVisualstudiocode,
+} from "react-icons/si";
 import {
   TbBrandNextjs,
   TbBrandHtml5,
@@ -12,7 +19,9 @@ import {
   BiLogoPython,
   BiLogoMongodb,
   BiLogoTypescript,
+  BiLogoVisualStudio,
 } from "react-icons/bi";
+import { AiFillGithub } from "react-icons/ai";
 
 const primaryBlue = "#44aeff";
 const secondaryBlue = "#4586ff";
@@ -96,5 +105,13 @@ export const skills: Skill[] = [
   {
     skill: "React Native",
     icon: <TbBrandReactNative color={primaryBlue} size={size} />,
+  },
+  {
+    skill: "GitHub",
+    icon: <AiFillGithub color={black} size={size} />,
+  },
+  {
+    skill: "VS Code",
+    icon: <BiLogoVisualStudio color={primaryBlue} size={size} />,
   },
 ];
