@@ -12,6 +12,15 @@ export const projects: Project[] = [
     link: "https://inspofolio.vercel.app/",
   },
   {
+    name: "3D Glass Terrarium",
+    description:
+      "An interactive scene built using Three.js with custom 3D models, vertex and fragment shaders, and a Lindenmayer system for drawing natural plant branching structures.",
+    tools: ["Three.js", "React.js", "GLSL"],
+    projectType: ProjectType.WEB,
+    priority: true,
+    link: "https://github.com/smallwhale1/cs1230-final-project",
+  },
+  {
     name: "Dash",
     description:
       "Collaborative, browser-based, multimedia application for organizing and presenting documents on a freeform canvas.",
